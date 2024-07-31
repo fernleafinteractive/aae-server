@@ -22,10 +22,6 @@ const server = net.createServer(
             let endIndex;
             let jsonMessage = "";
 
-            if(buffer.includes('Starting to buffer')) {
-                console.log("---FOUND HERE---");
-            }
-
             while((endIndex = buffer.indexOf('--end--')) !== -1) {
                 jsonMessage = buffer.slice(0, endIndex);
                 buffer = buffer.slice(endIndex + 7);
